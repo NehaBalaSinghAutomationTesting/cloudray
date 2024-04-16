@@ -4,7 +4,7 @@ let  path = require('path');
 console.log (cloudRayTask());
 
 async function cloudRayTask() {
-    let jsonBetSlipDetails = JSON.parse(fs.readFileSync(path.join(process.cwd(), path.sep, "test", path.sep, "resources", path.sep, "test_data", "\\heartrate.json")));
+    let jsonBetSlipDetails = JSON.parse(fs.readFileSync(path.join(process.cwd(), "\\heartrate.json")));
 
     const groupedData = {};
     jsonBetSlipDetails.forEach(obj => {
@@ -32,5 +32,5 @@ async function cloudRayTask() {
         }
         jsonArrayOutputData.push(response);
     }
-    fs.writeFileSync(path.join(process.cwd(), path.sep, "test", path.sep, "resources", path.sep, "test_data", "output.json"), JSON.stringify(jsonArrayOutputData));
+    fs.writeFileSync(path.join(process.cwd(), "\\output.json"), JSON.stringify(jsonArrayOutputData));
 }
