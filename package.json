@@ -1,18 +1,16 @@
 {
   "name": "nehaautomation",
   "version": "1.0.0",
-  "description": "Global Betstation Automation",
+  "description": "Cloudray Automation",
   "main": "index.js",
   "scripts": {
     "clodRayHeartRateTask": "node C:\\practice\\cloudray\\CloudRay.js"
   },
-  "author": "GBS Team",
+  "author": "Cloudray",
   "license": "ISC",
   "dependencies": {
     "@wdio/cli": "^7.5.7",
     "fs": "0.0.1-security",
     "jsonpath": "^1.1.0",
-    "moment": "^2.29.1",
-    "moment-timezone": "^0.5.34"
   }
 }
