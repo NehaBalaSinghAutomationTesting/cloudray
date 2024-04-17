@@ -1,7 +1,7 @@
 const fs = require('fs');
-let  path = require('path');
+let path = require('path');
 
-console.log (cloudRayTask());
+console.log(cloudRayTask());
 
 async function cloudRayTask() {
 
@@ -22,13 +22,19 @@ async function cloudRayTask() {
     let groupedDataValue = Object.values(groupedData);
 
     //Calculate min, max, median
-    for (let i = 0; i< groupedDataValue.length; i++ ) {
+    for (let i = 0; i < groupedDataValue.length; i++) {
         let min = Math.min(...groupedDataValue[i].map((beat) => beat.beatsPerMinute));
         let max = Math.max(...groupedDataValue[i].map((beat1) => beat1.beatsPerMinute));
         let sum = groupedDataValue[i].map((x) => x.beatsPerMinute);
         sum.sort((a, b) => a - b);
         let midValue = sum.length / 2;
-        let median = (sum[midValue] + sum[midValue + 1]) / 2;
+        let median
+        if (sum.length % 2 === 0) {
+            median = sum[midValue] / 2 + sum[midValue] / 2 + 1;
+        } else {
+            median = (sum[midValue] + sum[midValue + 1]) / 2;
+        }
+
         let latestTime = Math.max(...groupedDataValue[i].map((beat2) => new Date(beat2.timestamps.startTime).getTime()));
         let response = {
             "min": min,
