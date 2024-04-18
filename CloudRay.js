@@ -6,7 +6,7 @@ console.log(cloudRayTask());
 async function cloudRayTask() {
 
     //reading data from heartrate.json file
-    let jsonBetSlipDetails = JSON.parse(fs.readFileSync(path.join(process.cwd(), "\\heartrate.json")));
+    let jsonBetSlipDetails = JSON.parse(fs.readFileSync(path.join(process.cwd(), "heartrate.json")));
 
     //grouping json data on the basi of timestamp
     const groupedData = {};
@@ -45,5 +45,5 @@ async function cloudRayTask() {
         jsonArrayOutputData.push(response);
     }
     //writing the output data into json file
-    fs.writeFileSync(path.join(process.cwd(), "\\output.json"), JSON.stringify(jsonArrayOutputData));
+    fs.writeFileSync(path.join(process.cwd(), "output.json"), JSON.stringify(jsonArrayOutputData));
 }
